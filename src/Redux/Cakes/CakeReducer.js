@@ -2,6 +2,7 @@ import { buy_cake } from "./CakeTypes";
 
 export const initialState = {
   numOfCakes: 10,
+  error: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           numOfCakes: state.numOfCakes - 1,
+        };
+      } else {
+        return {
+          ...state,
+          error: (state.error = "Can't Buy stock is Over!"),
         };
       }
 
